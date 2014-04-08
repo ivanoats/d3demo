@@ -1,28 +1,17 @@
 {
-  "name": "d3data",
-  "version": "0.0.0",
-  "description": "d3data example",
-  "main": "index.js",
+  "name": "application-name",
+  "version": "0.0.1",
+  "private": true,
   "scripts": {
-    "test": "grunt test"
+    "start": "node ./bin/www"
   },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/ivanoats/d3data"
-  },
-  "keywords": [
-    "d3",
-    "data",
-    "tutorial"
-  ],
-  "author": "Ivan Storck",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/ivanoats/d3data/issues"
-  },
-  "homepage": "https://github.com/ivanoats/d3data",
-  "devDependencies": {
-    "grunt": "^0.4.4",
-    "browserify": "^3.38.1"
+  "dependencies": {
+    "body-parser": "~1.0.0",
+    "cookie-parser": "~1.0.1",
+    "debug": "~0.7.4",
+    "express": "~3.4.8",
+    "express3-handlebars": "^0.5.0",
+    "morgan": "~1.0.0",
+    "static-favicon": "~1.0.0"
   }
 }

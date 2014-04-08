@@ -11,17 +11,18 @@ var svg = d3.select('body')
 
 var dataset = {
   nodes: [
-    {name: 'Ivan'},
-    {name: 'Ben'},
-    {name: 'Mike'},
-    {name: 'Will'},
-    {name: 'Brook'}
+    {name: 'Ivan'}, // 0
+    {name: 'Ben'},  // 1
+    {name: 'Mike'}, // 2
+    {name: 'Will'}, // 3
+    {name: 'Brook'} // 4
   ],
   edges: [
     {source: 0, target: 1},
     {source: 0, target: 2},
     {source: 1, target: 2},
-    {source: 2, target: 3}
+    {source: 2, target: 3},
+    {source: 4, target: 3}
   ]
 };
 
