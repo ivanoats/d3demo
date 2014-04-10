@@ -21,7 +21,8 @@ var dataset = {
     {source: 0, target: 1},
     {source: 0, target: 2},
     {source: 1, target: 2},
-    {source: 2, target: 3}
+    {source: 2, target: 3},
+    {source: 4, target: 3}
   ]
 };
 
@@ -52,6 +53,17 @@ var nodes = svg.selectAll('circle')
   })
   .call(force.drag);
 
+var labels = svg.selectAll('text')
+                .data(dataset.nodes)
+                .enter()
+                .append('text')
+                .attr('id', 'tooltip')
+                .attr('font-family', 'sans-serif')
+                .attr('font-size', '11px')
+                .attr('font-weight', 'bold')
+                .attr('fill', 'black')
+                .text(function(d) { return d.name;} );
+
 force.on('tick', function() {
   edges.attr('x1', function(d) { return d.source.x; })
        .attr('y1', function(d) { return d.source.y; })
@@ -60,4 +72,7 @@ force.on('tick', function() {
 
   nodes.attr('cx', function(d) { return d.x; })
        .attr('cy', function(d) { return d.y; });
+
+  labels.attr('transform', function(d) { return 'translate(' +  (d.x + 10) +  ',' + d.y + ')'; } );
+
 });
