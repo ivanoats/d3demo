@@ -1,13 +1,32 @@
 # Learn Data Visualization with D3.js
 
+I will walk you through a simplified setup of one of the most fun
+D3.js visualizations, a force directed graph.
+
+#### Prerequistes
+
+Node and Bower installed and working on your system.
+
 ## Create a Project and Install D3
 
 ```
-npm init
-bower install d3
+npm -g install node-static   (if you haven't already)
+mkdir d3demo && cd d3demo
+bower init
+mkdir -p public
 ```
 
-## Set up Grunt and Browserify
+We want our bower components to be available to a simple static server, so we
+want them to be installed under the `public` directory.
+
+Put this in a file called `.bowerrc`
+```
+{
+  "directory" : "public/components"
+}
+```
+then:
 
 ```
-npm install grunt browserify --save-dev
+bower install d3 --save
+```

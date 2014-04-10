@@ -1,0 +1,26 @@
+{
+  "name": "d3demo-simple",
+  "version": "0.0.0",
+  "homepage": "https://github.com/ivanoats/d3demo",
+  "authors": [
+    "Ivan Storck <ivanoats@gmail.com>"
+  ],
+  "description": "a simple demo of d3",
+  "keywords": [
+    "d3",
+    "codefellows"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "d3": "~3.4.5"
+  }
+}
