@@ -61,12 +61,8 @@ function drawForceGraph(dataset) {
                     d3.select(this).style('fill', 'yellow');
                   })
                   .on('mouseout', function(d, i) {
-                    console.dir(colors(i));
-
-                    d3.select(this).style('fill', function(d, i) {
-                      return colors(i);
-                    });
-                  });
+                    d3.select(this).style('fill', colors(i));
+                  })
 
   // update the locations after dragging
   force.on('tick', function() {
