@@ -23,13 +23,13 @@ app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/bower_components',  express.static(__dirname + '/app/bower_components'));
-app.use(app.router);
-
+console.log(routes.index);
+var router = express.Router();
 app.get('/', routes.index);
 
 /// catch 404 and forwarding to error handler
 app.use(function(req, res, next) {
-  var err = new Error('Not Found');
+  var err = new Error('Page Not Found');
   err.status = 404;
   next(err);
 });
@@ -55,6 +55,5 @@ app.use(function(err, req, res) {
     error: {}
   });
 });
-
 
 module.exports = app;
