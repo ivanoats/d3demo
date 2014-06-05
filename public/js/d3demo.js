@@ -1,5 +1,5 @@
 'use strict';
-/* global d3 */
+/* global d3, BinarySearchTree */
 
 var w = 500, h = 500;
 
@@ -8,22 +8,46 @@ var svg = d3.select('body')
   .attr('width', w)
   .attr('height', h);
 
+var bst = new BinarySearchTree();
+
+bst.add(50);
+bst.add(25);
+bst.add(75);
+bst.add(1);
+bst.add(12);
+bst.add(62);
+bst.add(100);
+
+console.dir(bst);
+console.log('bst.toString() is: ' + bst.toString());
+console.log('Nodes to array are: ', bst.toArray());
+
+var bstArray = bst.toArray();
+var nodes = [];
+var edges = [];
+
+// Figure out edges array
+bst.traverse(function(node){
+  console.log('working on node value', node.value);
+  // find node.value positions in nodes array
+  var sourceNodePosition = bstArray.indexOf(node.value);
+  nodes.push({name: node.value});
+  if (node.left) {
+    var leftTargetNodePosition  = bstArray.indexOf(node.left.value);
+    edges.push({source: sourceNodePosition, target: leftTargetNodePosition});
+  }
+  if (node.right) {
+    var rightTargetNodePosition = bstArray.indexOf(node.right.value);
+    edges.push({source: sourceNodePosition, target: rightTargetNodePosition});
+  }
+});
+
+console.log('Edges are: ');
+console.dir(edges);
 
 var dataset = {
-  nodes: [
-    {name: 'Ivan'},
-    {name: 'Ben'},
-    {name: 'Mike'},
-    {name: 'Will'},
-    {name: 'Brook'}
-  ],
-  edges: [
-    {source: 0, target: 1},
-    {source: 0, target: 2},
-    {source: 1, target: 2},
-    {source: 2, target: 3},
-    {source: 4, target: 3}
-  ]
+  nodes: nodes,
+  edges: edges
 };
 
 var colors = d3.scale.category10();
