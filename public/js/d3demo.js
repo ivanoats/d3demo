@@ -31,7 +31,7 @@ bst.traverse(function(node){
   console.log('working on node value', node.value);
   // find node.value positions in nodes array
   var sourceNodePosition = bstArray.indexOf(node.value);
-  nodes.push({name: node.value});
+  nodes.push({value: node.value});
   if (node.left) {
     var leftTargetNodePosition  = bstArray.indexOf(node.left.value);
     edges.push({source: sourceNodePosition, target: leftTargetNodePosition});
@@ -65,7 +65,7 @@ var edges = svg.selectAll('line')
                .enter()
                .append('line')
                .style('stroke', '#ccc')
-               .style('stroke-width', 1);
+               .style('stroke-width', 4);
 
 var nodes = svg.selectAll('circle')
   .data(dataset.nodes)
@@ -75,8 +75,11 @@ var nodes = svg.selectAll('circle')
   .style('fill', function(d, i) {
     return colors(i);
   })
+  .on('click', function(d){
+    alert("The Value is " + d.value);
+  })
   .call(force.drag);
-
+  
 var labels = svg.selectAll('text')
                 .data(dataset.nodes)
                 .enter()
@@ -86,7 +89,7 @@ var labels = svg.selectAll('text')
                 .attr('font-size', '11px')
                 .attr('font-weight', 'bold')
                 .attr('fill', 'black')
-                .text(function(d) { return d.name;} );
+                .text(function(d) { return d.value;} );
 
 force.on('tick', function() {
   edges.attr('x1', function(d) { return d.source.x; })
