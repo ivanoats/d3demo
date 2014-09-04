@@ -7,6 +7,11 @@ D3.js visualizations, a force directed graph.
 
 Node and Bower installed and working on your system.
 
+If you want it all set up already, or to use as a local reference, go ahead and
+clone this repo:
+
+`git clone https://github.com/codefellows/d3demo.git`
+
 ## Create a Project and Install D3
 
 ```
@@ -27,6 +32,4 @@ Put this in a file called `.bowerrc`
 ```
 then:
 
-```
-bower install d3 --save
-```
+`bower install d3 --save`
