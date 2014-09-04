@@ -9,6 +9,9 @@ A Demo app to learn some features of [D3.js](http://d3js.org).
 - `npm install && bower install`
 
 
+## Start out Simple
+start out with the simple branch: https://github.com/ivanoats/d3demo/tree/simple
+
 ### Start the Express Server
 
 ```
