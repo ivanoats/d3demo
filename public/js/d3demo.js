@@ -18,11 +18,12 @@ var dataset = {
     {name: 'Brook'}
   ],
   edges: [
-    {source: 0, target: 1},
-    {source: 0, target: 2},
-    {source: 1, target: 2},
-    {source: 2, target: 3},
-    {source: 4, target: 3}
+    {source: 0, target: 1, weight: 4, stroke: '#c9c'}, // #cc99cc
+    {source: 1, target: 0, weight: 8, stroke: '#ccc'},
+    {source: 0, target: 2, weight: 1, stroke: '#3fc' },
+    {source: 1, target: 2, weight: 3, stroke: '#c00' },
+    {source: 2, target: 3, weight: 9, stroke: '#b09' },
+    {source: 4, target: 3, weight: 2, stroke: '#0b2' }
   ]
 };
 
@@ -40,8 +41,12 @@ var edges = svg.selectAll('line')
                .data(dataset.edges)
                .enter()
                .append('line')
-               .style('stroke', '#ccc')
-               .style('stroke-width', 1);
+               .style('stroke', function(d) {
+                 return d.stroke;
+               })
+               .style('stroke-width', function(d) {
+                 return d.weight;
+               });
 
 var nodes = svg.selectAll('circle')
   .data(dataset.nodes)
